@@ -4,15 +4,20 @@ import { info } from './info';
 
 function App() {
   const [kids, setKids] = useState(info);
+
   const [details, setDetails] = useState({
     name: '',
     age: '',
     parents: '',
   });
+
   details.id = kids.length + 1;
+
   const handleChange = (e) =>
     setDetails({ ...details, [e.target.id]: e.target.value });
+
   const handleDel = (id) => setKids(kids.filter((kid) => kid.id !== id));
+
   const handlesubmit = (e) => {
     e.preventDefault();
     setKids([...kids, details]);
@@ -22,6 +27,7 @@ function App() {
       parents: '',
     });
   };
+  
   return (
     <div className='container'>
       <div>
